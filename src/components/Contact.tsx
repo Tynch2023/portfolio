@@ -1,22 +1,23 @@
-import { useState } from 'react'
-import type { FormEvent } from 'react'
-import { motion } from 'framer-motion'
-import emailjs from '@emailjs/browser'
+import { useState } from "react";
+import type { FormEvent } from "react";
+import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  })
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
-  const [statusMessage, setStatusMessage] = useState('')
+    name: "",
+    email: "",
+    message: "",
+  });
 
-  // IMPORTANTE: El usuario debe configurar estas variables con sus credenciales de EmailJS
-  // Puede obtenerlas desde https://www.emailjs.com/
-  const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID'
-  const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID'
-  const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY'
+  const [status, setStatus] = useState<
+    "idle" | "sending" | "success" | "error"
+  >("idle");
+  const [statusMessage, setStatusMessage] = useState("");
+
+  const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+  const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+  const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -24,41 +25,30 @@ const Contact = () => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    })
-  }
+    });
+  };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setStatus('sending')
-    setStatusMessage('Enviando mensaje...')
+    e.preventDefault();
+    setStatus("sending");
+    setStatusMessage("Enviando mensaje...");
 
     // Validación básica
     if (!formData.name || !formData.email || !formData.message) {
-      setStatus('error')
-      setStatusMessage('Por favor, completa todos los campos')
-      return
+      setStatus("error");
+      setStatusMessage("Por favor, completa todos los campos");
+      return;
     }
 
-    // Validación de email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    // Validación email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      setStatus('error')
-      setStatusMessage('Por favor, ingresa un email válido')
-      return
+      setStatus("error");
+      setStatusMessage("Email inválido");
+      return;
     }
 
     try {
-      // Verificar si las credenciales están configuradas
-      if (
-        EMAILJS_SERVICE_ID === 'YOUR_SERVICE_ID' ||
-        EMAILJS_TEMPLATE_ID === 'YOUR_TEMPLATE_ID' ||
-        EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY'
-      ) {
-        throw new Error(
-          'Por favor, configura las credenciales de EmailJS en el componente Contact.tsx'
-        )
-      }
-
       await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
@@ -68,25 +58,22 @@ const Contact = () => {
           message: formData.message,
         },
         EMAILJS_PUBLIC_KEY
-      )
+      );
 
-      setStatus('success')
-      setStatusMessage('¡Mensaje enviado con éxito! Te responderé pronto.')
-      setFormData({ name: '', email: '', message: '' })
+      setStatus("success");
+      setStatusMessage("¡Mensaje enviado con éxito!");
+      setFormData({ name: "", email: "", message: "" });
 
-      // Resetear el estado después de 5 segundos
       setTimeout(() => {
-        setStatus('idle')
-        setStatusMessage('')
-      }, 5000)
+        setStatus("idle");
+        setStatusMessage("");
+      }, 4000);
     } catch (error) {
-      console.error('Error sending email:', error)
-      setStatus('error')
-      setStatusMessage(
-        'Hubo un error al enviar el mensaje. Por favor, intenta nuevamente o contacta directamente por email.'
-      )
+      console.error("EmailJS error:", error);
+      setStatus("error");
+      setStatusMessage("Error al enviar el mensaje. Intenta nuevamente.");
     }
-  }
+  };
 
   return (
     <section id="contact" className="section-container">
@@ -111,93 +98,74 @@ const Contact = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
+          {/* Nombre */}
           <div className="mb-6">
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-            >
-              Nombre
-            </label>
+            <label className="block text-sm font-medium mb-2">Nombre</label>
             <input
               type="text"
-              id="name"
               name="name"
               value={formData.name}
               onChange={handleChange}
-              required
-              className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors"
+              className="w-full px-4 py-3 rounded-lg border dark:bg-gray-700"
               placeholder="Tu nombre"
+              required
             />
           </div>
 
+          {/* Email */}
           <div className="mb-6">
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-            >
-              Email
-            </label>
+            <label className="block text-sm font-medium mb-2">Email</label>
             <input
               type="email"
-              id="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
-              required
-              className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors"
+              className="w-full px-4 py-3 rounded-lg border dark:bg-gray-700"
               placeholder="tu@email.com"
+              required
             />
           </div>
 
+          {/* Mensaje */}
           <div className="mb-6">
-            <label
-              htmlFor="message"
-              className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-            >
-              Mensaje
-            </label>
+            <label className="block text-sm font-medium mb-2">Mensaje</label>
             <textarea
-              id="message"
               name="message"
+              rows={5}
               value={formData.message}
               onChange={handleChange}
-              required
-              rows={6}
-              className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors resize-none"
+              className="w-full px-4 py-3 rounded-lg border dark:bg-gray-700 resize-none"
               placeholder="Cuéntame sobre tu proyecto..."
+              required
             />
           </div>
 
+          {/* Estado */}
           {statusMessage && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className={`mb-6 p-4 rounded-lg ${
-                status === 'success'
-                  ? 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300'
-                  : status === 'error'
-                  ? 'bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300'
-                  : 'bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300'
+            <div
+              className={`mb-6 p-4 rounded-lg text-sm ${
+                status === "success"
+                  ? "bg-green-100 text-green-800"
+                  : status === "error"
+                  ? "bg-red-100 text-red-800"
+                  : "bg-blue-100 text-blue-800"
               }`}
             >
               {statusMessage}
-            </motion.div>
+            </div>
           )}
 
-          <motion.button
+          <button
             type="submit"
-            disabled={status === 'sending'}
-            className="w-full px-8 py-4 bg-primary-600 hover:bg-primary-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
-            whileHover={{ scale: status === 'sending' ? 1 : 1.02 }}
-            whileTap={{ scale: status === 'sending' ? 1 : 0.98 }}
+            disabled={status === "sending"}
+            className="w-full py-4 rounded-lg bg-primary-600 text-white font-semibold disabled:opacity-50"
           >
-            {status === 'sending' ? 'Enviando...' : 'Enviar Mensaje'}
-          </motion.button>
+            {status === "sending" ? "Enviando..." : "Enviar mensaje"}
+          </button>
         </motion.form>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Contact
-
+export default Contact;
