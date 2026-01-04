@@ -1,32 +1,41 @@
-import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { motion, useMotionValue, useMotionTemplate } from "framer-motion";
+import { useEffect } from "react";
 
 const Hero = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [])
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [mouseX, mouseY]);
+
+  const background = useMotionTemplate`
+    radial-gradient(
+      600px circle at ${mouseX}px ${mouseY}px,
+      rgba(14, 165, 233, 0.15),
+      transparent 40%
+    )
+  `;
 
   const scrollToProjects = () => {
-    const element = document.querySelector('#projects')
+    const element = document.querySelector("#projects");
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Animated background gradient */}
-      <div
+      <motion.div
         className="absolute inset-0 opacity-30 dark:opacity-20"
-        style={{
-          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(14, 165, 233, 0.15), transparent 40%)`,
-        }}
+        style={{ background }}
       />
 
       <div className="section-container relative z-10 text-center">
@@ -61,7 +70,8 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            Especializado en React, TypeScript y tecnologías modernas del ecosistema web
+            Especializado en React, Next y tecnologías modernas del ecosistema
+            web
           </motion.p>
 
           <motion.button
@@ -79,7 +89,7 @@ const Hero = () => {
 
         {/* Scroll indicator */}
         <motion.div
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-5 left-1/2 transform -translate-x-1/2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1 }}
@@ -105,8 +115,7 @@ const Hero = () => {
         }
       `}</style>
     </section>
-  )
-}
+  );
+};
 
-export default Hero
-
+export default Hero;

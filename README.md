@@ -15,17 +15,20 @@ Un portafolio web moderno y profesional construido con React, Vite, Tailwind CSS
 ## 📦 Instalación
 
 1. Clona el repositorio:
+
 ```bash
 git clone <tu-repositorio>
 cd portfolio-tynch
 ```
 
 2. Instala las dependencias:
+
 ```bash
 npm install
 ```
 
 3. Inicia el servidor de desarrollo:
+
 ```bash
 npm run dev
 ```
@@ -81,7 +84,6 @@ Para habilitar el formulario de contacto, necesitas configurar EmailJS:
 - Framer Motion
 - EmailJS
 
-## 📄 Licencia
+## Icon
 
-Este proyecto está bajo la Licencia MIT.
-
+- By nawicon
