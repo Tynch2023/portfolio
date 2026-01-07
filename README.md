@@ -51,8 +51,14 @@ Para habilitar el formulario de contacto, necesitas configurar EmailJS:
 ### Personalización
 
 - **Proyectos**: Edita `src/data/projects.ts` para agregar tus proyectos
+  - Puedes agregar una URL específica para el visor responsive usando `responsiveUrl`
+  - Si no se especifica `responsiveUrl`, se usará la URL de `demo` automáticamente
 - **Información Personal**: Modifica `src/components/About.tsx` y `src/components/Hero.tsx`
 - **Colores**: Personaliza los colores en `tailwind.config.js`
+
+### Visor Responsive
+
+Cada proyecto tiene un botón "Responsive" que abre el visor de diseño responsive en una nueva pestaña. El visor permite ver el proyecto en diferentes tamaños de pantalla (móvil, tablet y desktop). La URL del proyecto se pasa automáticamente desde la configuración del proyecto.
 
 ## 🚀 Despliegue
 

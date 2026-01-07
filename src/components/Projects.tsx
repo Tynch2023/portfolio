@@ -79,7 +79,7 @@ const Projects = () => {
                 ))}
               </div>
 
-              <div className="flex gap-4">
+              <div className="flex gap-4 flex-wrap">
                 {project.github && (
                   <motion.a
                     href={project.github}
@@ -122,6 +122,31 @@ const Projects = () => {
                       />
                     </svg>
                     <span className="text-sm font-medium">Demo</span>
+                  </motion.a>
+                )}
+                {(project.responsiveUrl || project.demo) && (
+                  <motion.a
+                    href={`${window.location.origin}/responsive-viewer/${encodeURIComponent(project.responsiveUrl || project.demo || '')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+                      />
+                    </svg>
+                    <span className="text-sm font-medium">Responsive</span>
                   </motion.a>
                 )}
               </div>
