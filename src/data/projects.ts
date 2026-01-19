@@ -25,12 +25,12 @@ export const projects: Project[] = [
     demo: "https://the-wild-oasis-web-pi.vercel.app/",
   },
   {
-    title: "Weather Dashboard",
+    title: "3D-viewer",
     description:
       "Dashboard meteorológico interactivo que muestra pronósticos del tiempo en tiempo real. Incluye gráficos, mapas interactivos y alertas meteorológicas.",
     technologies: ["React", "TypeScript", "Chart.js", "OpenWeather API"],
     github: "https://github.com",
-    demo: "https://demo.example.com",
+    demo: "https://3d-view-cad.netlify.app/",
   },
   {
     title: "Social Media Analytics",
