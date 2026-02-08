@@ -33,12 +33,12 @@ export const projects: Project[] = [
     demo: "https://3d-view-cad.netlify.app/",
   },
   {
-    title: "Social Media Analytics",
+    title: "Wheather-dashboard",
     description:
       "Herramienta de análisis de redes sociales con visualizaciones de datos, métricas de engagement y reportes personalizables. Integración con múltiples plataformas.",
     technologies: ["Next.js", "TypeScript", "D3.js", "PostgreSQL"],
     github: "https://github.com",
-    demo: "https://demo.example.com",
+    demo: "https://wheather-dash.netlify.app/",
   },
   {
     title: "Portfolio Website",
