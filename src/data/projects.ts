@@ -41,12 +41,12 @@ export const projects: Project[] = [
     demo: "https://wheather-dash.netlify.app/",
   },
   {
-    title: "Portfolio Website",
+    title: "E-commerce",
     description:
       "Sitio web de portafolio personal con diseño moderno y responsive. Incluye animaciones suaves, modo oscuro y optimización SEO.",
     technologies: ["React", "Vite", "Tailwind CSS", "Framer Motion"],
     github: "https://github.com",
-    demo: "https://demo.example.com",
+    demo: "https://next-e-commerce-olive.vercel.app/",
   },
   {
     title: "Real-time Chat App",
