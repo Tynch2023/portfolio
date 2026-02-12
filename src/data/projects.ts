@@ -39,6 +39,7 @@ export const projects: Project[] = [
       "Dashboard meteorológico interactivo que muestra pronósticos del tiempo en tiempo real. Incluye gráficos, mapas interactivos y alertas meteorológicas.",
     technologies: ["React", "TypeScript", "Chart.js", "OpenWeather API"],
     github: "https://github.com",
+    image: "https://i.ibb.co/27hYhhZy/5.png",
     demo: "https://3d-view-cad.netlify.app/",
   },
   {
