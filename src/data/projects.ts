@@ -13,7 +13,6 @@ export const projects: Project[] = [
     description:
       "Tienda online con diseño moderno y responsive. Incluye dashboard de aministración, modo oscuro y optimización SEO.",
     technologies: ["React", "Next", "MongoDB", "TypeScript", "Tailwind CSS"],
-    github: "no",
     demo: "https://next-e-commerce-olive.vercel.app/",
   },
   {
@@ -21,7 +20,6 @@ export const projects: Project[] = [
     description:
       "Aplicación de gestión de tareas con funcionalidades de drag & drop, filtros avanzados, y sincronización en tiempo real. Diseñada para equipos de trabajo colaborativo.",
     technologies: ["React", "TypeScript", "Node.js", "MongoDB", "Stripe"],
-    github: "https://github.com",
     demo: "https://the-wild-oasis-one-livid.vercel.app/",
   },
   {
@@ -29,7 +27,6 @@ export const projects: Project[] = [
     description:
       "Aplicación de gestión de tareas con funcionalidades de drag & drop, filtros avanzados, y sincronización en tiempo real. Diseñada para equipos de trabajo colaborativo.",
     technologies: ["React", "Firebase", "Tailwind CSS", "Framer Motion"],
-    github: "https://github.com",
     demo: "https://the-wild-oasis-web-pi.vercel.app/",
   },
   {
