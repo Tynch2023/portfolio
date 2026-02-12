@@ -9,6 +9,14 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "E-commerce",
+    description:
+      "Tienda online con diseño moderno y responsive. Incluye dashboard de aministración, modo oscuro y optimización SEO.",
+    technologies: ["React", "Next", "MongoDB", "TypeScript", "Tailwind CSS"],
+    github: "no",
+    demo: "https://next-e-commerce-olive.vercel.app/",
+  },
+  {
     title: "the wild oasis - Dashboard",
     description:
       "Aplicación de gestión de tareas con funcionalidades de drag & drop, filtros avanzados, y sincronización en tiempo real. Diseñada para equipos de trabajo colaborativo.",
@@ -39,14 +47,6 @@ export const projects: Project[] = [
     technologies: ["Next.js", "TypeScript", "D3.js", "PostgreSQL"],
     github: "https://github.com",
     demo: "https://wheather-dash.netlify.app/",
-  },
-  {
-    title: "E-commerce",
-    description:
-      "Sitio web de portafolio personal con diseño moderno y responsive. Incluye animaciones suaves, modo oscuro y optimización SEO.",
-    technologies: ["React", "Vite", "Tailwind CSS", "Framer Motion"],
-    github: "https://github.com",
-    demo: "https://next-e-commerce-olive.vercel.app/",
   },
   {
     title: "Real-time Chat App",
