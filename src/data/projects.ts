@@ -22,6 +22,7 @@ export const projects: Project[] = [
     description:
       "Aplicación de gestión de tareas con funcionalidades de drag & drop, filtros avanzados, y sincronización en tiempo real. Diseñada para equipos de trabajo colaborativo.",
     technologies: ["React", "TypeScript", "Node.js", "MongoDB", "Stripe"],
+    image: "https://i.ibb.co/xTx1Zrx/3.png",
     demo: "https://the-wild-oasis-one-livid.vercel.app/",
   },
   {
