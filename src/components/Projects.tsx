@@ -52,12 +52,22 @@ const Projects = () => {
             whileHover={{ y: -5 }}
           >
             <div className="relative h-48 bg-gradient-to-br from-primary-500 to-primary-700 overflow-hidden">
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-6xl font-bold text-white/20">
-                  {project.title.charAt(0)}
-                </span>
-              </div>
+              {project.image ? (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <>
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-6xl font-bold text-white/20">
+                      {project.title.charAt(0)}
+                    </span>
+                  </div>
+                </>
+              )}
             </div>
 
             <div className="p-6">

@@ -2,6 +2,7 @@ export interface Project {
   title: string;
   description: string;
   technologies: string[];
+  image?: string;
   github?: string;
   demo?: string;
   responsiveUrl?: string;
@@ -13,6 +14,7 @@ export const projects: Project[] = [
     description:
       "Tienda online con diseño moderno y responsive. Incluye dashboard de aministración, modo oscuro y optimización SEO.",
     technologies: ["React", "Next", "MongoDB", "TypeScript", "Tailwind CSS"],
+    image: "https://i.ibb.co/v6GM1rJf/2.png",
     demo: "https://next-e-commerce-olive.vercel.app/",
   },
   {
