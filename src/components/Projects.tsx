@@ -48,7 +48,7 @@ const Projects = () => {
           <motion.div
             key={index}
             variants={itemVariants}
-            className="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden group"
+            className="bg-white dark:bg-gray-800 rounded-b-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden group"
             whileHover={{ y: -5 }}
           >
             <div className="relative h-48 bg-gradient-to-br from-primary-500 to-primary-700 overflow-hidden">
