@@ -46,10 +46,11 @@ export const projects: Project[] = [
     description:
       "Herramienta de análisis de redes sociales con visualizaciones de datos, métricas de engagement y reportes personalizables. Integración con múltiples plataformas.",
     technologies: ["Next.js", "TypeScript", "D3.js", "PostgreSQL"],
+    image: "https://i.ibb.co/7tT4gZj9/6.png",
     demo: "https://wheather-dash.netlify.app/",
   },
   {
-    title: "Real-time Chat App",
+    title: "Real-notes",
     description:
       "Aplicación de chat en tiempo real con salas múltiples, notificaciones push y cifrado de mensajes. Compatible con dispositivos móviles y desktop.",
     technologies: ["React", "Socket.io", "Node.js", "Express", "MongoDB"],
