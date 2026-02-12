@@ -53,11 +53,18 @@ const Projects = () => {
           >
             <div className="relative h-48 bg-gradient-to-br from-primary-500 to-primary-700 overflow-hidden">
               {project.image ? (
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover"
-                />
+                <a
+                  href={project.demo || project.github || '#'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full h-full"
+                >
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                  />
+                </a>
               ) : (
                 <>
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
