@@ -12,7 +12,7 @@ export const projects: Project[] = [
   {
     title: "E-commerce",
     description:
-      "Tienda online con diseño moderno y responsivo. Incluye dashboard de aministración, modo oscuro y optimización SEO.",
+      "Tienda online con diseño moderno y responsivo, carrito de compras. Incluye dashboard de aministración para crear, editar y borrar nuevos productos, modo oscuro y optimización SEO.",
     technologies: ["React", "Next", "MongoDB", "TypeScript", "Tailwind CSS"],
     image: "https://i.ibb.co/v6GM1rJf/2.png",
     demo: "https://next-e-commerce-olive.vercel.app/",
@@ -36,7 +36,7 @@ export const projects: Project[] = [
   {
     title: "The wild web",
     description:
-      "Aplicación de gestión de tareas con funcionalidades de drag & drop, filtros avanzados, y sincronización en tiempo real. Diseñada para equipos de trabajo colaborativo.",
+      "Landing page para que los futuros inquilinos puedan hacer sus recerbas de cabañas",
     technologies: [
       "React",
       "Next",
@@ -53,7 +53,7 @@ export const projects: Project[] = [
   {
     title: "3D-viewer",
     description:
-      "Dashboard meteorológico interactivo que muestra pronósticos del tiempo en tiempo real. Incluye gráficos, mapas interactivos y alertas meteorológicas.",
+      "Visor de archivos 3D en formato STL, usa la libreria Three para generar el modelo en el navegador",
     technologies: [
       "three",
       "React",
@@ -81,7 +81,7 @@ export const projects: Project[] = [
   {
     title: "React-notes",
     description:
-      "Aplicación de chat en tiempo real con salas múltiples, notificaciones push y cifrado de mensajes. Compatible con dispositivos móviles y desktop.",
+      "Aplicacion para guarar ejemplos de codigo de react que guarda los datos en un repo publico de Git",
     technologies: ["React", "Js", "Git-API", "Tailwind CSS", "CSS"],
     image: "https://i.ibb.co/WW0sK5V7/7.png",
     github: "https://github.com/Tynch2023/react-snippets-api",
