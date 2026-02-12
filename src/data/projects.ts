@@ -54,7 +54,8 @@ export const projects: Project[] = [
     description:
       "Aplicación de chat en tiempo real con salas múltiples, notificaciones push y cifrado de mensajes. Compatible con dispositivos móviles y desktop.",
     technologies: ["React", "Socket.io", "Node.js", "Express", "MongoDB"],
-    github: "https://github.com",
+    image: "https://i.ibb.co/WW0sK5V7/7.png",
+    github: "https://github.com/Tynch2023/react-snippets-api",
     demo: "https://demo.example.com",
   },
 ];
