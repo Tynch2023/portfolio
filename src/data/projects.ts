@@ -12,7 +12,7 @@ export const projects: Project[] = [
   {
     title: "E-commerce",
     description:
-      "Tienda online con diseño moderno y responsive. Incluye dashboard de aministración, modo oscuro y optimización SEO.",
+      "Tienda online con diseño moderno y responsivo. Incluye dashboard de aministración, modo oscuro y optimización SEO.",
     technologies: ["React", "Next", "MongoDB", "TypeScript", "Tailwind CSS"],
     image: "https://i.ibb.co/v6GM1rJf/2.png",
     demo: "https://next-e-commerce-olive.vercel.app/",
@@ -20,8 +20,8 @@ export const projects: Project[] = [
   {
     title: "the wild oasis - Dashboard",
     description:
-      "Aplicación de gestión de tareas con funcionalidades de drag & drop, filtros avanzados, y sincronización en tiempo real. Diseñada para equipos de trabajo colaborativo.",
-    technologies: ["React", "TypeScript", "Node.js", "MongoDB", "Stripe"],
+      "Aplicación de gestión de hoteleria, filtros avanzados, y sincronización en tiempo real. Diseñada para equipos de trabajo local.",
+    technologies: ["React", "TypeScript", "Node.js", "Stripe"],
     image: "https://i.ibb.co/xTx1Zrx/3.png",
     demo: "https://the-wild-oasis-one-livid.vercel.app/",
   },
@@ -50,7 +50,7 @@ export const projects: Project[] = [
     demo: "https://wheather-dash.netlify.app/",
   },
   {
-    title: "Real-notes",
+    title: "React-notes",
     description:
       "Aplicación de chat en tiempo real con salas múltiples, notificaciones push y cifrado de mensajes. Compatible con dispositivos móviles y desktop.",
     technologies: ["React", "Socket.io", "Node.js", "Express", "MongoDB"],
