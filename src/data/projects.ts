@@ -56,6 +56,6 @@ export const projects: Project[] = [
     technologies: ["React", "Socket.io", "Node.js", "Express", "MongoDB"],
     image: "https://i.ibb.co/WW0sK5V7/7.png",
     github: "https://github.com/Tynch2023/react-snippets-api",
-    demo: "https://demo.example.com",
+    demo: "https://react-next-snippets.netlify.app/",
   },
 ];
