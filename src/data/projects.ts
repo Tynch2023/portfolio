@@ -68,7 +68,13 @@ export const projects: Project[] = [
   {
     title: "Wheather-dashboard",
     description: "Dashboard con info climatologica",
-    technologies: ["React", "TypeScript", "Chart.js", "OpenWeather API"],
+    technologies: [
+      "React",
+      "leaflet",
+      "recharts",
+      "TypeScript",
+      "OpenWeather API",
+    ],
     image: "https://i.ibb.co/7tT4gZj9/6.png",
     demo: "https://wheather-dash.netlify.app/",
   },
@@ -76,7 +82,7 @@ export const projects: Project[] = [
     title: "React-notes",
     description:
       "Aplicación de chat en tiempo real con salas múltiples, notificaciones push y cifrado de mensajes. Compatible con dispositivos móviles y desktop.",
-    technologies: ["React", "Socket.io", "Node.js", "Express", "MongoDB"],
+    technologies: ["React", "Js", "Git-API", "Tailwind CSS", "CSS"],
     image: "https://i.ibb.co/WW0sK5V7/7.png",
     github: "https://github.com/Tynch2023/react-snippets-api",
     demo: "https://react-next-snippets.netlify.app/",
