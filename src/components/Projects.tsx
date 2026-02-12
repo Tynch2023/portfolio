@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion'
-import { projects } from '../data/projects'
+import { motion } from "framer-motion";
+import { projects } from "../data/projects";
 
 const Projects = () => {
   const containerVariants = {
@@ -10,7 +10,7 @@ const Projects = () => {
         staggerChildren: 0.2,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -21,7 +21,7 @@ const Projects = () => {
         duration: 0.5,
       },
     },
-  }
+  };
 
   return (
     <section id="projects" className="section-container">
@@ -33,7 +33,8 @@ const Projects = () => {
       >
         <h2 className="section-title">Proyectos</h2>
         <p className="section-subtitle">
-          Una selección de mis proyectos más recientes y destacados
+          Una selección de mis proyectos más recientes y destacados en [Vercel,
+          Netlify, Supabase, MongoDB cloud ]
         </p>
       </motion.div>
 
@@ -54,7 +55,7 @@ const Projects = () => {
             <div className="relative h-48 bg-gradient-to-br from-primary-500 to-primary-700 overflow-hidden">
               {project.image ? (
                 <a
-                  href={project.demo || project.github || '#'}
+                  href={project.demo || project.github || "#"}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full h-full"
@@ -143,7 +144,7 @@ const Projects = () => {
                 )}
                 {(project.responsiveUrl || project.demo) && (
                   <motion.a
-                    href={`${window.location.origin}/responsive-viewer/${encodeURIComponent(project.responsiveUrl || project.demo || '')}`}
+                    href={`${window.location.origin}/responsive-viewer/${encodeURIComponent(project.responsiveUrl || project.demo || "")}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
@@ -172,8 +173,7 @@ const Projects = () => {
         ))}
       </motion.div>
     </section>
-  )
-}
+  );
+};
 
-export default Projects
-
+export default Projects;
