@@ -40,14 +40,12 @@ export const projects: Project[] = [
     technologies: ["React", "TypeScript", "Chart.js", "OpenWeather API"],
     github: "https://github.com",
     image: "https://i.ibb.co/27hYhhZy/5.png",
-    demo: "https://3d-view-cad.netlify.app/",
   },
   {
     title: "Wheather-dashboard",
     description:
       "Herramienta de análisis de redes sociales con visualizaciones de datos, métricas de engagement y reportes personalizables. Integración con múltiples plataformas.",
     technologies: ["Next.js", "TypeScript", "D3.js", "PostgreSQL"],
-    github: "https://github.com",
     demo: "https://wheather-dash.netlify.app/",
   },
   {
