@@ -24,7 +24,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Projects
     'projects.title': 'Projects',
-    'projects.subtitle': 'A selection of my most recent and featured projects on [Vercel, Netlify, Supabase, MongoDB Cloud]',
+    'projects.subtitle': 'A selection of my most recent and featured projects',
 
     // Project descriptions
     'project.ecommerce.desc': 'Online store with modern and responsive design, shopping cart. Includes admin dashboard to create, edit and delete products, dark mode and SEO optimization.',
@@ -71,7 +71,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Projects
     'projects.title': 'Proyectos',
-    'projects.subtitle': 'Una selección de mis proyectos más recientes y destacados en [Vercel, Netlify, Supabase, MongoDB Cloud]',
+    'projects.subtitle': 'Una selección de mis proyectos más recientes y destacados',
 
     // Project descriptions
     'project.ecommerce.desc': 'Tienda online con diseño moderno y responsivo, carrito de compras. Incluye dashboard de aministración para crear, editar y borrar nuevos productos, modo oscuro y optimización SEO.',
