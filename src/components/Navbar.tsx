@@ -47,10 +47,15 @@ const Navbar = () => {
               e.preventDefault()
               window.scrollTo({ top: 0, behavior: 'smooth' })
             }}
-            className="text-2xl font-bold bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent"
+            className="flex items-center gap-3 text-2xl font-bold bg-gradient-to-r from-primary-600 to-primary-400 bg-clip-text text-transparent"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
+            <img
+              src="https://i.ibb.co/VW9vHYY0/Curriculum.jpg"
+              alt="Profile"
+              className="w-10 h-10 rounded-full object-cover border-2 border-primary-500 shadow-md"
+            />
             Portfolio
           </motion.a>
 
