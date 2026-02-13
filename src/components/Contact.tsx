@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { FormEvent } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -19,6 +20,8 @@ const Contact = () => {
   const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
   const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
+  const { t } = useLanguage();
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -31,12 +34,12 @@ const Contact = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("sending");
-    setStatusMessage("Enviando mensaje...");
+    setStatusMessage(t('contact.sendingMsg'));
 
     // Validación básica
     if (!formData.name || !formData.email || !formData.message) {
       setStatus("error");
-      setStatusMessage("Por favor, completa todos los campos");
+      setStatusMessage(t('contact.errorFields'));
       return;
     }
 
@@ -44,7 +47,7 @@ const Contact = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
       setStatus("error");
-      setStatusMessage("Email inválido");
+      setStatusMessage(t('contact.errorEmail'));
       return;
     }
 
@@ -61,7 +64,7 @@ const Contact = () => {
       );
 
       setStatus("success");
-      setStatusMessage("¡Mensaje enviado con éxito!");
+      setStatusMessage(t('contact.successMsg'));
       setFormData({ name: "", email: "", message: "" });
 
       setTimeout(() => {
@@ -71,7 +74,7 @@ const Contact = () => {
     } catch (error) {
       console.error("EmailJS error:", error);
       setStatus("error");
-      setStatusMessage("Error al enviar el mensaje. Intenta nuevamente.");
+      setStatusMessage(t('contact.errorMsg'));
     }
   };
 
@@ -83,9 +86,9 @@ const Contact = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="section-title">Contacto</h2>
+        <h2 className="section-title">{t('contact.title')}</h2>
         <p className="section-subtitle">
-          ¿Tienes un proyecto en mente? ¡Hablemos!
+          {t('contact.subtitle')}
         </p>
       </motion.div>
 
@@ -100,21 +103,21 @@ const Contact = () => {
         >
           {/* Nombre */}
           <div className="mb-6">
-            <label className="block text-sm font-medium mb-2">Nombre</label>
+            <label className="block text-sm font-medium mb-2">{t('contact.name')}</label>
             <input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
               className="w-full px-4 py-3 rounded-lg border dark:bg-gray-700"
-              placeholder="Tu nombre"
+              placeholder={t('contact.namePlaceholder')}
               required
             />
           </div>
 
           {/* Email */}
           <div className="mb-6">
-            <label className="block text-sm font-medium mb-2">Email</label>
+            <label className="block text-sm font-medium mb-2">{t('contact.email')}</label>
             <input
               type="email"
               name="email"
@@ -128,14 +131,14 @@ const Contact = () => {
 
           {/* Mensaje */}
           <div className="mb-6">
-            <label className="block text-sm font-medium mb-2">Mensaje</label>
+            <label className="block text-sm font-medium mb-2">{t('contact.message')}</label>
             <textarea
               name="message"
               rows={5}
               value={formData.message}
               onChange={handleChange}
               className="w-full px-4 py-3 rounded-lg border dark:bg-gray-700 resize-none"
-              placeholder="Cuéntame sobre tu proyecto..."
+              placeholder={t('contact.messagePlaceholder')}
               required
             />
           </div>
@@ -160,7 +163,7 @@ const Contact = () => {
             disabled={status === "sending"}
             className="w-full py-4 rounded-lg bg-primary-600 text-white font-semibold disabled:opacity-50"
           >
-            {status === "sending" ? "Enviando..." : "Enviar mensaje"}
+            {status === "sending" ? t('contact.sending') : t('contact.send')}
           </button>
         </motion.form>
       </div>

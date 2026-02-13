@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useLanguage } from '../contexts/LanguageContext';
 
 const About = () => {
   const techStack = [
@@ -33,6 +34,8 @@ const About = () => {
     },
   };
 
+  const { t } = useLanguage();
+
   return (
     <section
       id="about"
@@ -44,9 +47,9 @@ const About = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="section-title">Sobre Mí</h2>
+        <h2 className="section-title">{t('about.title')}</h2>
         <p className="section-subtitle">
-          Conoce más sobre mi experiencia y habilidades
+          {t('about.subtitle')}
         </p>
       </motion.div>
 
@@ -59,20 +62,10 @@ const About = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-            Soy desarrollador full-stack con enfoque en la construcción de
-            aplicaciones web modernas, escalables y orientadas a producto.
-            Trabajo principalmente con TypeScript y JavaScript, utilizando
-            Node.js, Express y MongoDB (Mongoose) en el backend, donde
-            implemento autenticación segura, validaciones robustas y
-            arquitecturas bien estructuradas.
+            {t('about.p1')}
           </p>
           <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-            En el frontend desarrollo con React y Next.js, priorizando
-            componentes reutilizables, rendimiento y buenas prácticas de diseño.
-            Tengo experiencia en despliegue en entornos cloud, integración de
-            servicios externos y optimización de bases de datos, siempre con
-            foco en eficiencia, mantenibilidad y calidad de código en entornos
-            productivos.
+            {t('about.p2')}
           </p>
         </motion.div>
 
@@ -83,7 +76,7 @@ const About = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <h3 className="text-2xl font-bold mb-6 text-center">
-            Stack Tecnológico
+            {t('about.techStack')}
           </h3>
           <motion.div
             className="flex flex-wrap justify-center gap-4"

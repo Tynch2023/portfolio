@@ -8,6 +8,7 @@ import Contact from "./components/Contact";
 import ResponsiveViewer from "./components/ResponsiveViewer";
 import { useTheme } from "./contexts/ThemeContext";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { LanguageProvider } from "./contexts/LanguageContext";
 
 function AppContent() {
   const { theme } = useTheme();
@@ -47,7 +48,9 @@ function AppContent() {
 function App() {
   return (
     <ThemeProvider>
-      <AppContent />
+      <LanguageProvider>
+        <AppContent />
+      </LanguageProvider>
     </ThemeProvider>
   );
 }

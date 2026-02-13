@@ -1,5 +1,6 @@
 import { motion, useMotionValue, useMotionTemplate } from "framer-motion";
 import { useEffect } from "react";
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Hero = () => {
   const mouseX = useMotionValue(0);
@@ -30,6 +31,8 @@ const Hero = () => {
     }
   };
 
+  const { t } = useLanguage()
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Animated background gradient */}
@@ -51,7 +54,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <span className="bg-gradient-to-r from-primary-600 via-primary-400 to-primary-600 bg-clip-text text-transparent bg-[length:200%_auto] animate-[shimmer_3s_linear_infinite]">
-              Desarrollador Web
+              {t('hero.title')}
             </span>
           </motion.h1>
 
@@ -61,7 +64,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Creando experiencias digitales modernas y funcionales
+            {t('hero.subtitle')}
           </motion.p>
 
           <motion.p
@@ -70,8 +73,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            Especializado en React, Next y tecnologías modernas del ecosistema
-            web
+            {t('hero.description')}
           </motion.p>
 
           <motion.button
@@ -83,7 +85,7 @@ const Hero = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Ver Proyectos
+            {t('hero.cta')}
           </motion.button>
         </motion.div>
 

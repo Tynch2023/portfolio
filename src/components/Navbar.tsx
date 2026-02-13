@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import ThemeToggle from './ThemeToggle'
+import LanguageToggle from './LanguageToggle'
+import { useLanguage } from '../contexts/LanguageContext'
 
 const Navbar = () => {
+  const { t } = useLanguage()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
@@ -15,9 +18,9 @@ const Navbar = () => {
   }, [])
 
   const navLinks = [
-    { name: 'Projects', href: '#projects' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
+    { name: t('nav.projects'), href: '#projects' },
+    { name: t('nav.about'), href: '#about' },
+    { name: t('nav.contact'), href: '#contact' },
   ]
 
   const scrollToSection = (href: string) => {
@@ -76,11 +79,13 @@ const Navbar = () => {
                 {link.name}
               </motion.a>
             ))}
+            <LanguageToggle />
             <ThemeToggle />
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-4">
+            <LanguageToggle />
             <ThemeToggle />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

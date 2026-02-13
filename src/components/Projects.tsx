@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { projects } from "../data/projects";
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Projects = () => {
+  const { t } = useLanguage();
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -31,10 +33,9 @@ const Projects = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="section-title">Proyectos</h2>
+        <h2 className="section-title">{t('projects.title')}</h2>
         <p className="section-subtitle">
-          Una selección de mis proyectos más recientes y destacados en [Vercel,
-          Netlify, Supabase, MongoDB cloud ]
+          {t('projects.subtitle')}
         </p>
       </motion.div>
 
@@ -83,7 +84,7 @@ const Projects = () => {
                 {project.title}
               </h3>
               <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
-                {project.description}
+                {t(project.descriptionKey)}
               </p>
 
               <div className="flex flex-wrap gap-2 mb-4">
