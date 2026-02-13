@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { projects } from "../data/projects";
 import { useLanguage } from '../contexts/LanguageContext';
+import { getTechColor } from '../data/techColors';
 
 const Projects = () => {
   const { t } = useLanguage();
@@ -88,14 +89,17 @@ const Projects = () => {
               </p>
 
               <div className="flex flex-wrap gap-2 mb-4">
-                {project.technologies.map((tech, techIndex) => (
-                  <span
-                    key={techIndex}
-                    className="px-3 py-1 text-xs font-semibold bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full"
-                  >
-                    {tech}
-                  </span>
-                ))}
+                {project.technologies.map((tech, techIndex) => {
+                  const color = getTechColor(tech);
+                  return (
+                    <span
+                      key={techIndex}
+                      className={`px-3 py-1 text-xs font-semibold rounded-full border ${color.bg} ${color.text} ${color.border}`}
+                    >
+                      {tech}
+                    </span>
+                  );
+                })}
               </div>
 
               <div className="flex gap-4 flex-wrap">

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useLanguage } from '../contexts/LanguageContext';
+import { getTechColor } from '../data/techColors';
 
 const About = () => {
   const techStack = [
@@ -85,18 +86,21 @@ const About = () => {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            {techStack.map((tech, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="px-6 py-3 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow"
-                whileHover={{ scale: 1.05, y: -2 }}
-              >
-                <span className="text-gray-800 dark:text-gray-200 font-semibold">
-                  {tech}
-                </span>
-              </motion.div>
-            ))}
+            {techStack.map((tech, index) => {
+              const color = getTechColor(tech);
+              return (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  className={`px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-shadow border ${color.bg} ${color.border}`}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                >
+                  <span className={`${color.text} font-semibold`}>
+                    {tech}
+                  </span>
+                </motion.div>
+              );
+            })}
           </motion.div>
         </motion.div>
       </div>
