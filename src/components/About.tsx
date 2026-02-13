@@ -2,14 +2,14 @@ import { motion } from "framer-motion";
 
 const About = () => {
   const techStack = [
+    "Git",
     "React",
+    "Js",
     "TypeScript",
     "Next.js",
     "Node.js",
     "Tailwind CSS",
-    "Framer Motion",
-    "Vite",
-    "Git",
+    "CSS",
   ];
 
   const containerVariants = {
@@ -59,22 +59,20 @@ const About = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-            Soy un desarrollador web apasionado por crear experiencias digitales
-            modernas y funcionales. Mi enfoque se centra en escribir código
-            limpio, mantenible y escalable, utilizando las últimas tecnologías y
-            mejores prácticas de la industria.
+            Soy desarrollador full-stack con enfoque en la construcción de
+            aplicaciones web modernas, escalables y orientadas a producto.
+            Trabajo principalmente con TypeScript y JavaScript, utilizando
+            Node.js, Express y MongoDB (Mongoose) en el backend, donde
+            implemento autenticación segura, validaciones robustas y
+            arquitecturas bien estructuradas.
           </p>
           <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-            Me especializo en el desarrollo frontend con React y TypeScript,
-            pero también tengo experiencia trabajando con tecnologías backend y
-            en la creación de aplicaciones full-stack. Siempre estoy aprendiendo
-            nuevas tecnologías y mejorando mis habilidades para ofrecer
-            soluciones de calidad.
-          </p>
-          <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-            Cuando no estoy programando, disfruto explorando nuevas
-            herramientas, contribuyendo a proyectos open source y compartiendo
-            conocimiento con la comunidad de desarrolladores.
+            En el frontend desarrollo con React y Next.js, priorizando
+            componentes reutilizables, rendimiento y buenas prácticas de diseño.
+            Tengo experiencia en despliegue en entornos cloud, integración de
+            servicios externos y optimización de bases de datos, siempre con
+            foco en eficiencia, mantenibilidad y calidad de código en entornos
+            productivos.
           </p>
         </motion.div>
 
