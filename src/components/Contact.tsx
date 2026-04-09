@@ -1,8 +1,9 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
 import { motion } from "framer-motion";
-import emailjs from "@emailjs/browser";
 import { useLanguage } from '../contexts/LanguageContext';
+
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -15,10 +16,6 @@ const Contact = () => {
     "idle" | "sending" | "success" | "error"
   >("idle");
   const [statusMessage, setStatusMessage] = useState("");
-
-  const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-  const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-  const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
   const { t } = useLanguage();
 
@@ -36,31 +33,30 @@ const Contact = () => {
     setStatus("sending");
     setStatusMessage(t('contact.sendingMsg'));
 
-    // Validación básica
     if (!formData.name || !formData.email || !formData.message) {
       setStatus("error");
       setStatusMessage(t('contact.errorFields'));
       return;
     }
 
-    // Validación email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
+    if (!EMAIL_REGEX.test(formData.email)) {
       setStatus("error");
       setStatusMessage(t('contact.errorEmail'));
       return;
     }
 
     try {
+      const emailjs = (await import("@emailjs/browser")).default;
+      
       await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
         },
-        EMAILJS_PUBLIC_KEY
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
 
       setStatus("success");
@@ -144,7 +140,7 @@ const Contact = () => {
           </div>
 
           {/* Estado */}
-          {statusMessage && (
+          {statusMessage ? (
             <div
               className={`mb-6 p-4 rounded-lg text-sm ${
                 status === "success"
@@ -156,7 +152,7 @@ const Contact = () => {
             >
               {statusMessage}
             </div>
-          )}
+          ) : null}
 
           <button
             type="submit"

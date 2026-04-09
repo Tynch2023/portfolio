@@ -19,6 +19,13 @@ export const techColors: Record<string, { bg: string; text: string; border: stri
 
 const defaultColor = { bg: 'bg-gray-100 dark:bg-gray-700/40', text: 'text-gray-700 dark:text-gray-300', border: 'border-gray-300 dark:border-gray-600' }
 
+const colorCache = new Map<string, { bg: string; text: string; border: string }>()
+
 export function getTechColor(tech: string) {
-  return techColors[tech] || defaultColor
+  if (colorCache.has(tech)) {
+    return colorCache.get(tech)!
+  }
+  const color = techColors[tech] || defaultColor
+  colorCache.set(tech, color)
+  return color
 }
